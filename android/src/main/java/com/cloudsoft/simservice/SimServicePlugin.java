@@ -113,7 +113,7 @@ public class SimServicePlugin  implements MethodCallHandler {
                         String deviceId = null;
                         // TelephonyManager.getDeviceId(slotId) requires API 23
                         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                            deviceId = manager.getDeviceId(simSlotIndex);
+                            deviceId = manager.getImei(simSlotIndex);
                         }
 
                         JSONObject simData = new JSONObject();
@@ -166,7 +166,7 @@ public class SimServicePlugin  implements MethodCallHandler {
 
 
                 phoneNumber = manager.getLine1Number();
-                deviceId = manager.getDeviceId();
+                deviceId = manager.getImei();
                 deviceSoftwareVersion = manager.getDeviceSoftwareVersion();
                 simSerialNumber = manager.getSimSerialNumber();
                 subscriberId = manager.getSubscriberId();
